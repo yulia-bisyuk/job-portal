@@ -66,11 +66,43 @@ export const categories = [
 
 export const popularCategories = [];
 
-export const levels = [
-  { id: 'A0/A1', name: '(Beginner/Elementary)' },
-  { id: 'A2', name: '(Pre Intermediate)' },
-  { id: 'B1', name: '(Intermediate)' },
-  { id: 'B2', name: '(Upper Intermediate)' },
-  { id: 'C1', name: '(Advanced)' },
-  { id: 'C2', name: '(Proficient)' },
+export const partners = [
+  { id: 'p-1', logo: '/images/clickup.svg' },
+  { id: 'p-2', logo: '/images/dropbox.svg' },
+  { id: 'p-3', logo: '/images/elastic.svg' },
+  { id: 'p-4', logo: '/images/google.svg' },
+  { id: 'p-5', logo: '/images/helpscout.svg' },
+  { id: 'p-6', logo: '/images/hubspot.svg' },
+  { id: 'p-7', logo: '/images/intuit.svg' },
+  { id: 'p-8', logo: '/images/paychecks.svg' },
+  { id: 'p-9', logo: '/images/servicenow.svg' },
+  { id: 'p-10', logo: '/images/shopify.svg' },
+  { id: 'p-11', logo: '/images/twilio.svg' },
 ];
+
+export const statistics = [
+  {
+    id: 'stats-1',
+    title: 'Jobs',
+    value: '123k',
+  },
+  {
+    id: 'stats-2',
+    title: 'Companies',
+    value: '1.3k',
+  },
+  {
+    id: 'stats-3',
+    title: 'Applications',
+    value: '103k',
+  },
+];
+
+// export const levels = [
+//   { id: 'A0/A1', name: '(Beginner/Elementary)' },
+//   { id: 'A2', name: '(Pre Intermediate)' },
+//   { id: 'B1', name: '(Intermediate)' },
+//   { id: 'B2', name: '(Upper Intermediate)' },
+//   { id: 'C1', name: '(Advanced)' },
+//   { id: 'C2', name: '(Proficient)' },
+// ];
