@@ -27,7 +27,7 @@ const Statistics = () => {
                   </p>
                 </div>
               </li>
-              <span className=' last:hidden h-[48px] ss:h-[60px] sm:h-[90px] w-[0.5px] bg-primaryGreen mx-[0px] sm:mx-[6px] sm:mx-[10px]'></span>
+              <span className=' last:hidden h-[48px] ss:h-[60px] sm:h-[72px] w-[0.5px] bg-primaryGreen mx-[0px] sm:mx-[6px] sm:mx-[10px]'></span>
             </>
           ))}
         </ul>

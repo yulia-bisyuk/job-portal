@@ -1,5 +1,6 @@
 import { BsInstagram, BsTwitter } from 'react-icons/bs';
 import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
+import sprite from '../assets/sprite.svg';
 
 export const BASE_URL = 'https://www.themuse.com/api/public/jobs';
 
@@ -67,7 +68,22 @@ export const categories = [
   'Writing and Editing',
 ];
 
-export const popularCategories = [];
+export const popularCategories = [
+  { id: 1, title: 'Arts', icon: `${sprite + '#icon-art'}` },
+  { id: 2, title: 'Business Operations', icon: `${sprite + '#icon-business'}` },
+  {
+    id: 3,
+    title: 'Computer and IT',
+    icon: `${sprite + '#icon-code-computer'}`,
+  },
+  { id: 1, title: 'Management', icon: `${sprite + '#icon-user-business'}` },
+  // { id: 1, title: 'Data and Analytics', icon: '' },
+  // { id: 1, title: 'Design and UX', icon: '' },
+  // { id: 1, title: 'Healthcare', icon: '' },
+  // { id: 1, title: 'Software Engineering', icon: '' },
+  // { id: 1, title: 'Education', icon: '' },
+  // { id: 1, title: 'Human Resources and Recruitment', icon: '' },
+];
 
 export const partners = [
   { id: 'p-1', logo: '/images/clickup.svg' },
