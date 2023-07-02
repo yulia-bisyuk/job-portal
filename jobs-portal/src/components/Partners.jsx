@@ -15,7 +15,19 @@ const Partners = () => {
     slidesToScroll: 1,
     responsive: [
       {
+        breakpoint: 2600,
+        settings: {
+          slidesToShow: 9,
+        },
+      },
+      {
         breakpoint: 1700,
+        settings: {
+          slidesToShow: 8,
+        },
+      },
+      {
+        breakpoint: 1200,
         settings: {
           slidesToShow: 7,
         },

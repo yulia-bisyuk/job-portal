@@ -1,3 +1,6 @@
+import { BsInstagram, BsTwitter } from 'react-icons/bs';
+import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
+
 export const BASE_URL = 'https://www.themuse.com/api/public/jobs';
 
 export const categories = [
@@ -95,6 +98,29 @@ export const statistics = [
     id: 'stats-3',
     title: 'Applications',
     value: '103k',
+  },
+];
+
+export const socials = [
+  {
+    id: 'facebook',
+    link: 'https://www.facebook.com/',
+    icon: FaFacebookF,
+  },
+  {
+    id: 'linkedin',
+    link: 'https://www.linkedin.com/',
+    icon: FaLinkedinIn,
+  },
+  {
+    id: 'twitter',
+    link: 'https://twitter.com/',
+    icon: BsTwitter,
+  },
+  {
+    id: 'instagram',
+    link: 'https://www.instagram.com/',
+    icon: BsInstagram,
   },
 ];
 
