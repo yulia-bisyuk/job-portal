@@ -56,7 +56,9 @@ const Partners = () => {
   return (
     <section className={`${layout.section}`}>
       <div className='container '>
-        <h2 className={`${styles.heading2}`}>We are glad to be trusted by!</h2>
+        <h2 className={`text-darkGreen ${styles.heading2}`}>
+          We are glad to be trusted by!
+        </h2>
         <Slider
           {...settings}
           className='py-[20px] border-y-2 border-lightGreen'

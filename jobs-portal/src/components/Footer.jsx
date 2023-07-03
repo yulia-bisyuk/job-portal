@@ -28,7 +28,7 @@ const Footer = () => {
           ))}
         </ul>
         <p className='font-poppins font-normal text-center text-[12px] text-white leading-10 w-full mt-5 border-t-[0.5px] border-white'>
-          © 2022 Jobs Portal. Designed By Wilson Kinyua
+          © 2023 Jobs Portal. Designed And Developed By Yuliia Bisiuk
         </p>
       </div>
     </section>

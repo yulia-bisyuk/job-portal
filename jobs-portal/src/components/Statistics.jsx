@@ -12,7 +12,7 @@ const Statistics = () => {
           src={girl}
           alt='illustration'
         />
-        <ul className='flex items-center px-[16px] w-fit h-fit bg-white rounded-lg'>
+        <ul className='flex items-center px-[16px] w-fit h-fit bg-white rounded-lg shadow'>
           {statistics.map((stat) => (
             <Fragment key={stat.id}>
               <li className=' p-[10px] ss:p-[16px] flex items-center '>

@@ -152,6 +152,18 @@ export const socials = [
   },
 ];
 
+export const jobs = [
+  {
+    id: 11639434,
+    name: 'Estagiário Suporte e Infraestrutura',
+    categories: [{ name: 'Computer and IT' }],
+    company: { id: 15000196, short_name: 'exadel', name: 'Exadel' },
+    levels: { name: 'Mid Level', short_name: 'mid' },
+    publication_date: '2023-06-15T23:06:31Z',
+    locations: [],
+  },
+];
+
 // export const levels = [
 //   { id: 'A0/A1', name: '(Beginner/Elementary)' },
 //   { id: 'A2', name: '(Pre Intermediate)' },
