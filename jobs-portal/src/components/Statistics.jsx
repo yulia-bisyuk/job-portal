@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { layout } from '../styles';
 import girl from '../assets/girl.svg';
 import { statistics } from '../constants';
@@ -12,12 +13,9 @@ const Statistics = () => {
           alt='illustration'
         />
         <ul className='flex items-center px-[16px] w-fit h-fit bg-white rounded-lg'>
-          {statistics.map((stat, i) => (
-            <>
-              <li
-                key={stat.id}
-                className=' p-[10px] ss:p-[16px] flex items-center '
-              >
+          {statistics.map((stat) => (
+            <Fragment key={stat.id}>
+              <li className=' p-[10px] ss:p-[16px] flex items-center '>
                 <div>
                   <p className='mb-[6px] sm:mb-[12px] text-center text-textGrey uppercase text-[16px] sm:text-[20px]'>
                     {stat.title}
@@ -28,7 +26,7 @@ const Statistics = () => {
                 </div>
               </li>
               <span className=' last:hidden h-[48px] ss:h-[60px] sm:h-[72px] w-[0.5px] bg-primaryGreen mx-[0px] sm:mx-[6px] sm:mx-[10px]'></span>
-            </>
+            </Fragment>
           ))}
         </ul>
       </div>

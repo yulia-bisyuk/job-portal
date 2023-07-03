@@ -38,7 +38,7 @@ const Hero = () => {
           <img
             src={heroImg}
             alt='main-illustration'
-            className='w-full sm:w-[328px] md:w-[412px] lg:w-[480px] animate__animated animate__backInRight'
+            className='w-full sm:w-[328px] md:w-[412px] lg:w-[600px] animate__animated animate__backInRight'
           />
         </div>
         <DropdownButton />

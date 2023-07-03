@@ -76,13 +76,25 @@ export const popularCategories = [
     title: 'Computer and IT',
     icon: `${sprite + '#icon-code-computer'}`,
   },
-  { id: 1, title: 'Management', icon: `${sprite + '#icon-user-business'}` },
-  // { id: 1, title: 'Data and Analytics', icon: '' },
-  // { id: 1, title: 'Design and UX', icon: '' },
-  // { id: 1, title: 'Healthcare', icon: '' },
-  // { id: 1, title: 'Software Engineering', icon: '' },
-  // { id: 1, title: 'Education', icon: '' },
-  // { id: 1, title: 'Human Resources and Recruitment', icon: '' },
+  { id: 4, title: 'Management', icon: `${sprite + '#icon-user-business'}` },
+  {
+    id: 5,
+    title: 'Data and Analytics',
+    icon: `${sprite + '#icon-data'}`,
+  },
+  { id: 6, title: 'Design and UX', icon: `${sprite + '#icon-design'}` },
+  { id: 7, title: 'Healthcare', icon: `${sprite + '#icon-health'}` },
+  {
+    id: 8,
+    title: 'Software Engineering',
+    icon: `${sprite + '#icon-software'}`,
+  },
+  { id: 9, title: 'Education', icon: `${sprite + '#icon-student'}` },
+  {
+    id: 10,
+    title: 'Human Resources and Recruitment',
+    icon: `${sprite + '#icon-people'}`,
+  },
 ];
 
 export const partners = [
