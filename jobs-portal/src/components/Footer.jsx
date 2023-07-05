@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <section className={` bg-primaryGreen ${layout.section}`}>
       <div className='container'>
-        <h3 className={`text-white uppercase ${styles.heading3}`}>Join Us</h3>
+        <h3 className={`text-white uppercase ${styles.heading3}`}>Follow Us</h3>
         <ul className='flex justify-center '>
           {socials.map((social) => (
             <li key={social.id} className='mr-[8px] last:mr-0 group'>

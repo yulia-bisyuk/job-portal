@@ -1,10 +1,12 @@
 export const effects = {
   btnHover: 'hover:bg-white hover:text-primaryGreen ',
+  textHover:
+    'hover:underline hover:underline-offset-8 hover:decoration-[0.5px] ',
 };
 
 export const styles = {
   button: `py-[6px] px-[14px] bg-primaryGreen border border-primaryGreen rounded font-poppins text-[12px] leading-[27px] text-white ${effects.btnHover} transition duration-300 `,
-
+  outlinedButton: `py-[6px] px-[14px] bg-primaryGreen border border-primaryGreen rounded font-poppins text-[12px] leading-[27px] text-white ${effects.btnHover} transition duration-300 `,
   // boxWidth: 'xl:max-w-[1280px] w-full',
   heading1:
     'font-poppins font-bold sm:text-[48px] ss:text-[36px] text-[30px] sm:leading-normal leading-10 w-full mb-[20px] ss:mb-[28px]',
@@ -12,6 +14,8 @@ export const styles = {
     'font-poppins font-semibold text-center sm:text-[30px] ss:text-[24px] text-[18px] sm:leading-normal leading-10 w-full mb-[20px] ss:mb-[28px]',
   heading3:
     'font-poppins font-semibold text-center sm:text-[24px] ss:text-[18px] text-[12px] sm:leading-normal leading-10 w-full mb-[20px] ss:mb-[28px]',
+  heading4:
+    'font-poppins font-semibold sm:text-[18px] ss:text-[16px] text-[14px] sm:leading-normal leading-10',
   paragraph:
     'font-poppins font-normal text-[12px] ss:text-[16px] sm:text-[20px] leading-[30px] w-full ',
   flexCenter: 'flex justify-center items-center',
