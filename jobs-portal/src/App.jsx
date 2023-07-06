@@ -1,3 +1,4 @@
+import React, { useState, lazy, Suspense } from 'react';
 import {
   createBrowserRouter,
   Route,
@@ -5,8 +6,11 @@ import {
   Routes,
 } from 'react-router-dom';
 import Header from './components/Header';
-import HomePage from './pages/HomePage';
 import Footer from './components/Footer';
+
+const HomePage = lazy(() => import('./pages/HomePage'));
+
+export const JobDetailsContext = React.createContext();
 
 const Root = () => {
   return (
@@ -19,13 +23,23 @@ const Root = () => {
 const router = createBrowserRouter([{ path: '*', Component: Root }]);
 
 const App = () => {
-  return (
-    <>
-      <Header />
-      <RouterProvider router={router} />
+  const [category, setCategory] = useState('');
+  const [jobId, setJobId] = useState(localStorage.getItem('id'));
+  const value = {
+    category,
+    setCategory,
+    jobId,
+    setJobId,
+  };
 
-      <Footer />
-    </>
+  return (
+    <Suspense fallback={null}>
+      <JobDetailsContext.Provider value={value}>
+        <Header />
+        <RouterProvider router={router} />
+        <Footer />
+      </JobDetailsContext.Provider>
+    </Suspense>
   );
 };
 

@@ -12,3 +12,7 @@ export const parseDate = (date) => {
     .split('-')
     .map((item) => Number(item));
 };
+
+export const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
