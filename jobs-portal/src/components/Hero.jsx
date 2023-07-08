@@ -1,9 +1,16 @@
 import { layout, styles } from '../styles';
 import 'animate.css';
+import { useContext } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { categories } from '../constants';
 import heroImg from '../assets/hero-img.svg';
 import DropdownButton from './DropdownButton';
+import { JobDetailsContext } from '../App';
 
 const Hero = () => {
+  const { setCategory } = useContext(JobDetailsContext);
+  // eslint-disable-next-line
+  const [searchParams, setSearchParams] = useSearchParams();
   return (
     <section className={` bg-lightGreen ${layout.section}`}>
       <div className='container'>
@@ -41,7 +48,16 @@ const Hero = () => {
             className='w-full sm:w-[328px] md:w-[412px] lg:w-[600px] animate__animated animate__backInRight'
           />
         </div>
-        <DropdownButton />
+        <DropdownButton
+          text='Search Job by Category'
+          options={categories}
+          style={{ animate: 'backInLeft', height: '[160px]' }}
+          onClick={(e) => {
+            console.log(e.target.innerText);
+            setCategory(e.target.innerText);
+            setSearchParams({ page: 1 });
+          }}
+        />
       </div>
     </section>
   );

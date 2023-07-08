@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { layout, styles } from '../styles';
 import PropTypes from 'prop-types';
-// import { scrollToTop } from '../helpers';
+// import { sortByDate } from '../helpers';
 import JobListItem from './JobListItem';
-// import { jobs } from '../constants';
+import DropdownButton from './DropdownButton';
+import { sortByDateOptions } from '../constants';
 import sprite from '../assets/sprite.svg';
 
 const JobList = ({
@@ -18,9 +19,19 @@ const JobList = ({
 
   const [fromCount, setFromCount] = useState(1);
   const [toCount, setToCount] = useState(20);
+  const [option, setOption] = useState(null);
+  console.log('option1', option);
 
-  // const fromCount = +currentPage === 1 ? 1 : itemsPerPage + 20;
-  // const toCount = +currentPage === 1 ? 20 : itemsPerPage * +currentPage + 20;
+  // sortByDate(option, jobs);
+
+  jobs.sort((a, b) => {
+    if (option === 'Show from Newer ones') {
+      return new Date(b.publication_date) - new Date(a.publication_date);
+    }
+    if (option === 'Show from Older ones') {
+      return new Date(a.publication_date) - new Date(b.publication_date);
+    }
+  });
 
   const onPrevClick = () => {
     if (+currentPage > 1) setSearchParams({ page: +currentPage - 1 });
@@ -42,7 +53,18 @@ const JobList = ({
         <h2 className={` text-darkGreen ${styles.heading2}`}>
           All Popular Listed jobs
         </h2>
-        <ul className='md:grid md:grid-cols-2 md:gap-8 mb-[26px]'>
+        <div className='mx-auto w-fit'>
+          <DropdownButton
+            text='Sort By Date Published'
+            options={sortByDateOptions}
+            style={{ animate: 'fadeIn', height: '[90px]' }}
+            onClick={(e) => setOption(e.target.innerText)}
+          />
+          <p className='text-[14px] font-normal text-center text-textLightGrey leading-6'>
+            {option}
+          </p>
+        </div>
+        <ul className='md:grid md:grid-cols-2 md:gap-8 my-[26px]'>
           {jobs && jobs.map((job) => <JobListItem key={job.id} job={job} />)}
         </ul>
         <div>
@@ -79,7 +101,7 @@ const JobList = ({
 JobList.propTypes = {
   jobs: PropTypes.array,
   setSearchParams: PropTypes.func,
-  currentPage: PropTypes.string,
+  currentPage: PropTypes.number,
   totalPages: PropTypes.number,
   itemsPerPage: PropTypes.number,
   totalJobsCount: PropTypes.number,

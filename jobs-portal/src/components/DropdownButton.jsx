@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import 'animate.css';
-import { categories } from '../constants';
 
-const DropdownButton = () => {
+const DropdownButton = ({ text, options, style, onClick }) => {
   const [isOpened, setIsOpened] = useState(false);
 
   const ref = useRef(null);
   const btnRef = useRef(null);
+
   const handleClickOutside = (e) => {
     if (
       ref.current &&
@@ -26,14 +27,14 @@ const DropdownButton = () => {
   });
 
   return (
-    <div className='animate__animated animate__backInLeft'>
+    <div className={`animate__animated animate__${style.animate}`}>
       <button
         ref={btnRef}
         onClick={() => setIsOpened((prev) => !prev)}
-        className='text-white bg-primaryGreen hover:bg-darkGreen focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center transition duration-300'
+        className='text-white bg-primaryGreen hover:bg-darkGreen focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center transition duration-300 relative'
         type='button'
       >
-        Search Job by Category{' '}
+        {text}
         <svg
           className='w-4 h-4 ml-2'
           aria-hidden='true'
@@ -52,15 +53,21 @@ const DropdownButton = () => {
       </button>
 
       {isOpened && (
-        <div className='z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-[214px] h-[160px] overflow-scroll'>
+        <div
+          className={`z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-[214px] h-${style.height} overflow-scroll`}
+        >
           <ul
             ref={ref}
             className='py-2 text-sm text-gray-700 '
             aria-labelledby='dropdownDefaultButton'
           >
-            {categories.map((category, index) => (
-              <li key={index} className='block px-4 py-2 hover:bg-lightGreen '>
-                {category}
+            {options.map((option, index) => (
+              <li
+                key={index}
+                onClick={onClick}
+                className='block px-4 py-2 hover:bg-lightGreen '
+              >
+                {option}
               </li>
             ))}
           </ul>
@@ -68,6 +75,13 @@ const DropdownButton = () => {
       )}
     </div>
   );
+};
+
+DropdownButton.propTypes = {
+  text: PropTypes.string,
+  options: PropTypes.array,
+  style: PropTypes.object,
+  onClick: PropTypes.func,
 };
 
 export default DropdownButton;

@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { formatDistanceToNow } from 'date-fns';
 import { getAbbreviation, parseDate } from '../helpers';
 import { effects, styles } from '../styles';
 import sprite from '../assets/sprite.svg';
@@ -28,15 +27,10 @@ const JobListItem = ({ job }) => {
             {/* font-weight: 300; font-size: 14px; line-height: 1.21;
             letter-spacing: 0.206667px; color: rgb(135, 141, 157); */}
             <p className=' posted text-[14px] font-normal text-textLightGrey leading-6'>
-              {'Posted ' +
-                formatDistanceToNow(
-                  new Date(
-                    parseDate(job.publication_date)[0],
-                    parseDate(job.publication_date)[1],
-                    parseDate(job.publication_date)[2]
-                  )
-                ) +
-                ' ago'}
+              Posted{' '}
+              <span className='text-darkGreen font-bold'>
+                {parseDate(job.publication_date)}
+              </span>
             </p>
           </div>
 

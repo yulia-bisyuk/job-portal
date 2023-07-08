@@ -152,52 +152,9 @@ export const socials = [
   },
 ];
 
-export const jobs = [
-  {
-    id: 11639434,
-    name: 'Estagiário Suporte e Infraestrutura',
-    categories: [{ name: 'Computer and IT' }],
-    company: { id: 15000196, short_name: 'exadel', name: 'Exadel' },
-    levels: { name: 'Mid Level', short_name: 'mid' },
-    publication_date: '2023-06-15T23:06:31Z',
-    locations: [],
-  },
-  {
-    id: 1163943,
-    name: 'Senior Project Manager EPS - Syracuse(NY)',
-    categories: [{ name: 'Computer and IT' }],
-    company: { id: 15000196, short_name: 'exadel', name: 'Exadel' },
-    levels: { name: 'Mid Level', short_name: 'mid' },
-    publication_date: '2023-06-15T23:06:31Z',
-    locations: [],
-  },
-  {
-    id: 116394388,
-    name: 'Abschlussarbeit (Bachelor) im Bereich industrielle Kommunikation - OPC UA - strukturierte Daten bis in die Cloud',
-    categories: [{ name: 'Computer and IT' }],
-    company: { id: 15000196, short_name: 'exadel', name: 'Exadel' },
-    levels: { name: 'Mid Level', short_name: 'mid' },
-    publication_date: '2023-06-15T23:06:31Z',
-    locations: [],
-  },
-  {
-    id: 116394300,
-    name: 'Estagiário Suporte e Infraestrutura',
-    categories: [{ name: 'Computer and IT' }],
-    company: { id: 15000196, short_name: 'exadel', name: 'Exadel' },
-    levels: { name: 'Mid Level', short_name: 'mid' },
-    publication_date: '2023-06-15T23:06:31Z',
-    locations: [],
-  },
-  {
-    id: 116394366,
-    name: 'Estagiário Suporte e Infraestrutura',
-    categories: [{ name: 'Computer and IT' }],
-    company: { id: 15000196, short_name: 'exadel', name: 'Exadel' },
-    levels: { name: 'Mid Level', short_name: 'mid' },
-    publication_date: '2023-06-15T23:06:31Z',
-    locations: [],
-  },
+export const sortByDateOptions = [
+  'Show from Older ones',
+  'Show from Newer ones',
 ];
 
 // export const levels = [
