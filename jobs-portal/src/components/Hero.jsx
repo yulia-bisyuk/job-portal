@@ -1,16 +1,19 @@
 import { layout, styles } from '../styles';
+
 import 'animate.css';
-import { useContext } from 'react';
+import { forwardRef, useContext } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { categories } from '../constants';
+import { scrollToView } from '../helpers';
 import heroImg from '../assets/hero-img.svg';
 import DropdownButton from './DropdownButton';
 import { JobDetailsContext } from '../App';
 
-const Hero = () => {
+const Hero = forwardRef(function Hero(props, ref) {
   const { setCategory } = useContext(JobDetailsContext);
   // eslint-disable-next-line
   const [searchParams, setSearchParams] = useSearchParams();
+
   return (
     <section className={` bg-lightGreen ${layout.section}`}>
       <div className='container'>
@@ -51,16 +54,20 @@ const Hero = () => {
         <DropdownButton
           text='Search Job by Category'
           options={categories}
-          style={{ animate: 'backInLeft', height: '[160px]' }}
+          style={{ animate: 'backInLeft', height: 'h-[160px]' }}
           onClick={(e) => {
-            console.log(e.target.innerText);
             setCategory(e.target.innerText);
             setSearchParams({ page: 1 });
+            scrollToView(ref);
           }}
         />
       </div>
     </section>
   );
-};
+});
+
+// Hero.propTypes = {
+//   ref: PropTypes.array,
+// };
 
 export default Hero;

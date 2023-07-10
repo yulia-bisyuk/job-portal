@@ -5,22 +5,25 @@ import {
   RouterProvider,
   Routes,
 } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
+const JobDetailsPage = lazy(() => import('./pages/JobDetailsPage'));
 
 export const JobDetailsContext = React.createContext();
 
 const Root = () => {
   return (
     <Routes>
-      <Route path='/' element={<HomePage />} />
+      <Route exact path='/' element={<HomePage />} />
+      <Route path='/details' element={<JobDetailsPage />} />
     </Routes>
   );
 };
 
-const router = createBrowserRouter([{ path: '*', Component: Root }]);
+const router = createBrowserRouter([
+  { path: '*', Component: Root },
+  // { basename: '/job-portal' },
+]);
 
 const App = () => {
   const [category, setCategory] = useState('');
@@ -35,9 +38,7 @@ const App = () => {
   return (
     <Suspense fallback={null}>
       <JobDetailsContext.Provider value={value}>
-        <Header />
-        <RouterProvider router={router} />
-        <Footer />
+        <RouterProvider router={router}></RouterProvider>
       </JobDetailsContext.Provider>
     </Suspense>
   );

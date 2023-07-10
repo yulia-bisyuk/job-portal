@@ -54,7 +54,7 @@ const DropdownButton = ({ text, options, style, onClick }) => {
 
       {isOpened && (
         <div
-          className={`z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-[214px] h-${style.height} overflow-scroll`}
+          className={`z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-[214px] ${style.height} overflow-scroll`}
         >
           <ul
             ref={ref}

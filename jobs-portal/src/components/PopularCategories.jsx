@@ -1,7 +1,11 @@
+import { forwardRef, useContext } from 'react';
 import { layout, styles } from '../styles';
 import { popularCategories } from '../constants';
+import { scrollToView } from '../helpers';
+import { JobDetailsContext } from '../App';
 
-const PopularCategories = () => {
+const PopularCategories = forwardRef(function PopularCategories(props, ref) {
+  const { setCategory } = useContext(JobDetailsContext);
   return (
     <section className={` bg-lightGrey ${layout.section}`}>
       <div className='container'>
@@ -22,7 +26,10 @@ const PopularCategories = () => {
                 </svg>
               </div>
               <div
-                onClick={() => console.log(`category.title: `, category.title)}
+                onClick={() => {
+                  setCategory(category.title);
+                  scrollToView(ref);
+                }}
                 className={`absolute top-0 left-0 w-full h-0 p-[4px] ${styles.flexCenter} bg-darkGreen opacity-0 group-hover:h-full group-hover:opacity-100 duration-500 rounded-lg`}
               >
                 <p
@@ -37,6 +44,6 @@ const PopularCategories = () => {
       </div>
     </section>
   );
-};
+});
 
 export default PopularCategories;

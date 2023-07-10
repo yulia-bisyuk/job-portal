@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { getAbbreviation, parseDate } from '../helpers';
 import { effects, styles } from '../styles';
 import sprite from '../assets/sprite.svg';
+import { Link } from 'react-router-dom';
 
 const JobListItem = ({ job }) => {
   return (
@@ -35,11 +36,11 @@ const JobListItem = ({ job }) => {
           </div>
 
           <div className='all-content-except-image'>
-            <a href='/details' className={`${effects.textHover}`}>
+            <Link to='/details' className={`${effects.textHover}`}>
               <h4 className={`mb-[5px] ${styles.heading4} leading-6 `}>
                 {job.name}
               </h4>
-            </a>
+            </Link>
 
             <p className='mt-[0px] mb-[7px] text-[16px] font-normal text-textLightGrey leading-6'>
               Department name:{' '}
@@ -72,14 +73,14 @@ const JobListItem = ({ job }) => {
 
       {/*  */}
       <div className='ml-auto'>
-        <a href='/details'>
+        <Link to='/details'>
           <button
             className={`bg-lightGreen font-medium mr-[8px] ${styles.button} `}
             type='button'
           >
             Details
           </button>
-        </a>
+        </Link>
         <button className={` font-medium ${styles.button}`} type='button'>
           Apply
         </button>
