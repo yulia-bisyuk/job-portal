@@ -4,7 +4,7 @@ import { effects, styles } from '../styles';
 import sprite from '../assets/sprite.svg';
 import { Link } from 'react-router-dom';
 
-const JobListItem = ({ job }) => {
+const JobListItem = ({ job, setModalOpened }) => {
   return (
     <li
       className={`flex flex-col justify-between py-[13px] px-[16px] mb-[10px] md:mb-[0px] last:mb-[0px] rounded-lg shadow bg-lightGreen`}
@@ -81,7 +81,13 @@ const JobListItem = ({ job }) => {
             Details
           </button>
         </Link>
-        <button className={` font-medium ${styles.button}`} type='button'>
+        <button
+          className={` font-medium ${styles.button}`}
+          type='button'
+          onClick={() => {
+            setModalOpened(true);
+          }}
+        >
           Apply
         </button>
       </div>
@@ -91,6 +97,7 @@ const JobListItem = ({ job }) => {
 
 JobListItem.propTypes = {
   job: PropTypes.object,
+  setModalOpened: PropTypes.func,
 };
 
 export default JobListItem;

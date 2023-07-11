@@ -5,26 +5,21 @@ import PropTypes from 'prop-types';
 import { scrollToView } from '../helpers';
 import JobListItem from './JobListItem';
 import DropdownButton from './DropdownButton';
+import Modal from './Modal';
 import { sortByDateOptions } from '../constants';
 import sprite from '../assets/sprite.svg';
 
 const JobList = forwardRef(function JobList(
-  {
-    jobs,
-    // setSearchParams,
-    currentPage,
-    itemsPerPage,
-    totalPages,
-    totalJobsCount,
-  },
+  { jobs, currentPage, itemsPerPage, totalPages, totalJobsCount },
   ref
 ) {
   const [fromCount, setFromCount] = useState(1);
   const [toCount, setToCount] = useState(itemsPerPage);
   const [option, setOption] = useState(null);
+  const [modalOpened, setModalOpened] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  console.log(`currentPage: `, typeof currentPage);
+  console.log(`modalOpened: `, modalOpened);
 
   jobs.sort((a, b) => {
     if (option === 'Show from Newer ones') {
@@ -74,8 +69,23 @@ const JobList = forwardRef(function JobList(
           id='scrollTarget'
           className='md:grid md:grid-cols-2 md:gap-8 my-[26px]'
         >
-          {jobs && jobs.map((job) => <JobListItem key={job.id} job={job} />)}
+          {jobs &&
+            jobs.map((job) => (
+              <JobListItem
+                key={job.id}
+                job={job}
+                setModalOpened={setModalOpened}
+              />
+            ))}
         </ul>
+        {modalOpened && (
+          <Modal
+            setModalOpened={setModalOpened}
+            title={'Apply for job of your dream!'}
+          >
+            <div>Modal Children</div>
+          </Modal>
+        )}
         <div>
           <p
             className={`text-textLightGrey text-center ${styles.paragraph} mb-[12px]`}

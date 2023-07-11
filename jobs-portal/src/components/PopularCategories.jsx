@@ -7,6 +7,7 @@ import { JobDetailsContext } from '../App';
 
 const PopularCategories = forwardRef(function PopularCategories(props, ref) {
   const { setCategory } = useContext(JobDetailsContext);
+  //eslint-disable-next-line
   const [searchParams, setSearchParams] = useSearchParams();
   return (
     <section className={` bg-lightGrey ${layout.section}`}>
