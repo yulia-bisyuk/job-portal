@@ -1,4 +1,5 @@
 import { useState, forwardRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { layout, styles } from '../styles';
 import PropTypes from 'prop-types';
 import { scrollToView } from '../helpers';
@@ -10,7 +11,7 @@ import sprite from '../assets/sprite.svg';
 const JobList = forwardRef(function JobList(
   {
     jobs,
-    setSearchParams,
+    // setSearchParams,
     currentPage,
     itemsPerPage,
     totalPages,
@@ -21,6 +22,7 @@ const JobList = forwardRef(function JobList(
   const [fromCount, setFromCount] = useState(1);
   const [toCount, setToCount] = useState(itemsPerPage);
   const [option, setOption] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   console.log(`currentPage: `, typeof currentPage);
 
@@ -36,15 +38,14 @@ const JobList = forwardRef(function JobList(
   const onPrevClick = () => {
     if (+currentPage > 1) setSearchParams({ page: +currentPage - 1 });
     setFromCount((prevCount) => prevCount - itemsPerPage);
-    setToCount((prevCount) => prevCount - itemsPerPage);
+    setToCount(currentPage * itemsPerPage - itemsPerPage);
     scrollToView(ref);
   };
 
   const onNextClick = () => {
     if (+currentPage < totalPages) setSearchParams({ page: +currentPage + 1 });
-    setFromCount((prevCount) => prevCount + itemsPerPage);
-    setToCount((prevCount) => prevCount + itemsPerPage);
-
+    setToCount(currentPage * itemsPerPage + itemsPerPage);
+    setFromCount(currentPage * itemsPerPage);
     scrollToView(ref);
   };
 
@@ -89,12 +90,21 @@ const JobList = forwardRef(function JobList(
             Jobs
           </p>
           <div className=' w-fit mx-auto'>
-            <button onClick={onPrevClick} type='button' className='mr-[12px]'>
-              <svg width='30' height='30'>
+            <button
+              onClick={onPrevClick}
+              type='button'
+              className='mr-[12px] disabled:opacity-50'
+              disabled={+currentPage === 1}
+            >
+              <svg width='30' height='30' className='group-disabled:fill-grey'>
                 <use href={sprite + '#icon-arrow-left'} />
               </svg>
             </button>
-            <button onClick={onNextClick} type='button'>
+            <button
+              onClick={onNextClick}
+              type='button'
+              disabled={totalJobsCount / +currentPage === 1}
+            >
               <svg width='30' height='30'>
                 <use href={sprite + '#icon-arrow-right'} />
               </svg>
