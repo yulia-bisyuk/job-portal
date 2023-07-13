@@ -11,6 +11,23 @@ export const styles = {
   textInput:
     'w-full py-[10px] pl-[14px] border-[1px] border-solid  rounded-[8px] focus:outline-0',
   label: 'ml-[16px] text-darkGreen',
+  /* display: block;
+  width: 245px;
+  padding: 14px 16px;
+
+  border-width: 1px 1px 1px 0px;
+  border-color: ${props => props.theme.borderInputColor};
+  border-style: solid;
+  border-radius: 0px 8px 8px 0px;
+  color: ${props => props.theme.helperTextColor};
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  @media screen and (min-width: 768px) {
+    width: 297px;
+  } */
+  filePlaceholder:
+    'w-full py-[10px] px-[14px] border-solid border-y border-s-0 border-e-[1px] rounded-s-none rounded-r-[8px] rounded-b-[8px] border-lightGreen text-textLightGrey truncate',
   heading1:
     'font-poppins font-bold sm:text-[48px] ss:text-[36px] text-[30px] sm:leading-normal leading-10 w-full mb-[20px] ss:mb-[28px]',
   heading2:

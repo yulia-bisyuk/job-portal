@@ -79,7 +79,7 @@ const ApplyForm = ({ setModalOpened }) => {
               className='mr-auto w-full max-w-[380px]'
             >
               <div>
-                <div className='mb-[30px]'>
+                <div className='mb-[16px]'>
                   {nameFilled && (
                     <label className={`${styles.label}`}>Your name</label>
                   )}
@@ -103,7 +103,7 @@ const ApplyForm = ({ setModalOpened }) => {
                   ) : null}
                 </div>
 
-                <div className='mb-[30px]'>
+                <div className='mb-[16px]'>
                   {emailFilled && (
                     <label className={`${styles.label}`}>Email</label>
                   )}
@@ -158,12 +158,10 @@ const ApplyForm = ({ setModalOpened }) => {
                   ) : null}
                 </div>
               </div>
-
-              <p className={`mt-[25px] mb-[12px] ${styles.label}`}>
+              <p className={`mt-[16px] mb-[12px] ${styles.label}`}>
                 Indicate your English level:
               </p>
-
-              <div className='mb-[30px]'>
+              <div className='mb-[16px]'>
                 {levels.map((level) => (
                   <label
                     className='flex items-center mb-[4px] last:mb-0'
@@ -181,11 +179,14 @@ const ApplyForm = ({ setModalOpened }) => {
                   </label>
                 ))}
                 {formik.touched.language && formik.errors.language ? (
-                  <p>{formik.errors.language}</p>
+                  <p className={`${styles.errorMsg}`}>
+                    {formik.errors.language}
+                  </p>
                 ) : null}
               </div>
 
               <input
+                className='w-[0.1px] h-[0.1px] opacity-0 overflow-hidden absolute -z-1'
                 id='resume'
                 name='resume'
                 type='file'
@@ -195,17 +196,27 @@ const ApplyForm = ({ setModalOpened }) => {
                   setFileName(e.currentTarget.files[0].name);
                 }}
               />
-              <label htmlFor='resume'>
-                <span>Upload</span>
-                <span>{fileName ? fileName : 'Upload your CV'}</span>
+              <label htmlFor='resume' className='flex'>
+                <span className='block py-[10px] px-[14px] border-[1px] border-solid  border-primaryGreen rounded-r-[0px] rounded-s-[8px] pointer'>
+                  Upload
+                </span>
+
+                <span
+                  className={`${styles.filePlaceholder} ${
+                    formik.touched.resume && formik.errors.resume
+                      ? 'border-errorRed'
+                      : 'border-lightGreen'
+                  }`}
+                >
+                  {fileName ? fileName : 'Upload your CV'}
+                </span>
               </label>
               {formik.touched.resume && formik.errors.resume ? (
-                <p>{formik.errors.resume}</p>
+                <p className={`${styles.errorMsg}`}>{formik.errors.resume}</p>
               ) : null}
-
               <button
                 type='submit'
-                className={`${styles.button}`}
+                className={`${styles.button} mt-[16px]`}
                 disabled={!buttonIsActive}
               >
                 Apply
