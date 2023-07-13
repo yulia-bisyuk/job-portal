@@ -25,8 +25,7 @@ const JobListItem = ({ job, setModalOpened }) => {
                 </svg>
               ))}
             </div>
-            {/* font-weight: 300; font-size: 14px; line-height: 1.21;
-            letter-spacing: 0.206667px; color: rgb(135, 141, 157); */}
+
             <p className=' posted text-[14px] font-normal text-textLightGrey leading-6'>
               Posted{' '}
               <span className='text-darkGreen font-bold'>

@@ -20,10 +20,10 @@ module.exports = {
         lightGrey: '#F6F7FA',
         textGrey: '#616161',
         textLightGrey: '#5F5858',
-        // dimBlue: 'rgba(9, 151, 124, 0.1)',
+        errorRed: '#dc3545',
       },
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
+        raleway: ['Raleway', 'sans-serif'],
       },
     },
     screens: {

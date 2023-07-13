@@ -24,6 +24,29 @@ div.slick-track {
   justify-content: space-between;
 }
 
+.radio-group-input {
+  /* remove standard background appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  margin-right: 12px;
+  width: 20px;
+  height: 20px;
+  padding: 4px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 1px solid #338573;
+  background-color: #eff6f2;
+  border-radius: 50%;
+}
+
+.radio-group-input:checked {
+  /* border: 1px solid #0c4f3f; */
+  background-color: #338573;
+}
+
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
