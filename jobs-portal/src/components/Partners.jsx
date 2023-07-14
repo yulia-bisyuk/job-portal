@@ -9,7 +9,7 @@ const Partners = () => {
     dots: false,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 1500,
     // speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,

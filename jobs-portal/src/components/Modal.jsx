@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import ApplyForm from './ApplyForm';
 
-const Modal = ({ setModalOpened, title }) => {
+const Modal = ({ setModalOpened }) => {
   return (
     <>
       <div
@@ -11,7 +11,9 @@ const Modal = ({ setModalOpened, title }) => {
         <div className='relative w-full max-w-lg h-full mx-auto'>
           <div className='relative bg-white rounded-lg shadow dark:bg-gray-700'>
             <div className='flex items-center justify-between p-4 border-b rounded-t'>
-              <h3 className='text-xl font-semibold text-darkGreen '>{title}</h3>
+              <h3 className='text-xl font-semibold text-darkGreen '>
+                Apply for job of your dream!
+              </h3>
               <button
                 type='button'
                 onClick={() => {
@@ -49,11 +51,6 @@ const Modal = ({ setModalOpened, title }) => {
 };
 
 Modal.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
-  title: PropTypes.string,
   setModalOpened: PropTypes.func,
 };
 

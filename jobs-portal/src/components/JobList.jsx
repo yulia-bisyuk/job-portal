@@ -17,10 +17,10 @@ const JobList = forwardRef(function JobList(
   const [toCount, setToCount] = useState(itemsPerPage);
   const [option, setOption] = useState(null);
   const [modalOpened, setModalOpened] = useState(false);
+  // eslint-disable-next-line
   const [searchParams, setSearchParams] = useSearchParams();
 
-  console.log(`modalOpened: `, modalOpened);
-
+  // eslint-disable-next-line
   jobs.sort((a, b) => {
     if (option === 'Show from Newer ones') {
       return new Date(b.publication_date) - new Date(a.publication_date);
@@ -78,14 +78,7 @@ const JobList = forwardRef(function JobList(
               />
             ))}
         </ul>
-        {modalOpened && (
-          <Modal
-            setModalOpened={setModalOpened}
-            title={'Apply for job of your dream!'}
-          >
-            <div>Modal Children</div>
-          </Modal>
-        )}
+        {modalOpened && <Modal setModalOpened={setModalOpened} />}
         <div>
           <p
             className={`text-textLightGrey text-center ${styles.paragraph} mb-[12px]`}

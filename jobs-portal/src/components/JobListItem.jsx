@@ -1,10 +1,13 @@
+import { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { JobDetailsContext } from '../App';
 import { getAbbreviation, parseDate } from '../helpers';
 import { effects, styles } from '../styles';
 import sprite from '../assets/sprite.svg';
 import { Link } from 'react-router-dom';
 
 const JobListItem = ({ job, setModalOpened }) => {
+  const { setJobId } = useContext(JobDetailsContext);
   return (
     <li
       className={`flex flex-col justify-between py-[13px] px-[16px] mb-[10px] md:mb-[0px] last:mb-[0px] rounded-lg shadow bg-lightGreen`}
@@ -35,7 +38,11 @@ const JobListItem = ({ job, setModalOpened }) => {
           </div>
 
           <div className='all-content-except-image'>
-            <Link to='/details' className={`${effects.textHover}`}>
+            <Link
+              to='/details'
+              className={`${effects.textHover}`}
+              onClick={() => setJobId(job.id)}
+            >
               <h4 className={`mb-[5px] ${styles.heading4} leading-6 `}>
                 {job.name}
               </h4>
@@ -72,7 +79,7 @@ const JobListItem = ({ job, setModalOpened }) => {
 
       {/*  */}
       <div className='ml-auto'>
-        <Link to='/details'>
+        <Link to='/details' onClick={() => setJobId(job.id)}>
           <button
             className={`bg-lightGreen font-medium mr-[8px] ${styles.button} `}
             type='button'

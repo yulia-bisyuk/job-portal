@@ -28,6 +28,7 @@ const router = createBrowserRouter([
 const App = () => {
   const [category, setCategory] = useState('');
   const [jobId, setJobId] = useState(localStorage.getItem('id'));
+
   const value = {
     category,
     setCategory,
