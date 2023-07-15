@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
-const JobDetailsPage = lazy(() => import('./pages/JobDetailsPage'));
+const JobPage = lazy(() => import('./pages/JobPage'));
 
 export const JobDetailsContext = React.createContext();
 
@@ -15,7 +15,7 @@ const Root = () => {
   return (
     <Routes>
       <Route exact path='/' element={<HomePage />} />
-      <Route path='/details' element={<JobDetailsPage />} />
+      <Route path='/details' element={<JobPage />} />
     </Routes>
   );
 };

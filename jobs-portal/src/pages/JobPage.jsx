@@ -3,13 +3,15 @@ import { JobDetailsContext } from '../App';
 import parse from 'html-react-parser';
 import axios from 'axios';
 import { BASE_URL } from '../constants';
+import { parseDate } from '../helpers';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import JobDetailsContent from '../components/JobDetailsContent';
+import JobDetailsContent from '../components/JobContent';
+import Loader from '../components/Loader';
+import Error from '../components/Error';
 
-const JobDetailsPage = () => {
+const JobPage = () => {
   const { jobId } = useContext(JobDetailsContext);
-  console.log(`jobId in JobDetailsPage: `, jobId);
 
   const [jobItem, setJobItem] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -34,16 +36,20 @@ const JobDetailsPage = () => {
       .finally(() => setIsLoading(false));
   }, [jobId]);
 
-  console.log(`jobItem: `, jobItem);
+  if (jobItem) {
+    console.log(`jobItemContents: `, typeof jobItem.contents);
+  }
 
   return (
     <div>
       <Header />
+      {isLoading && <Loader />}
+      {isError && <Error />}
       {jobItem && (
         <JobDetailsContent
           name={jobItem.name}
           company={jobItem.company.name}
-          date={jobItem.publication_date.slice(0, 10)}
+          date={parseDate(jobItem.publication_date)}
           info={parse(jobItem.contents)}
         />
       )}
@@ -53,4 +59,4 @@ const JobDetailsPage = () => {
   );
 };
 
-export default JobDetailsPage;
+export default JobPage;

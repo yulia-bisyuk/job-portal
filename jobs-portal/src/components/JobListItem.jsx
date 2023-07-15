@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 
 const JobListItem = ({ job, setModalOpened }) => {
   const { setJobId } = useContext(JobDetailsContext);
+
   return (
     <li
       className={`flex flex-col justify-between py-[13px] px-[16px] mb-[10px] md:mb-[0px] last:mb-[0px] rounded-lg shadow bg-lightGreen`}
