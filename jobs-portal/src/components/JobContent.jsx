@@ -8,6 +8,7 @@ import { scrollToTop } from '../helpers';
 
 const JobDetailsContent = ({ name, company, date, info }) => {
   const [modalOpened, setModalOpened] = useState(false);
+  // console.log(`info: `, typeof info);
 
   return (
     <section className={` ${layout.section}`}>
@@ -28,11 +29,11 @@ const JobDetailsContent = ({ name, company, date, info }) => {
           </p>
           <h2 className={`${styles.heading4} text-darkGreen`}>{company}</h2>
         </div>
-        <p
-          className={`bg-[url('/public/images/apply-bg.svg')] bg-no-repeat bg-center bg-contain`}
+        <div
+          className={`bg-[url('/images/apply-bg.svg')] bg-no-repeat bg-center bg-contain`}
         >
           {info}
-        </p>
+        </div>
 
         <button
           type='button'
@@ -67,7 +68,7 @@ JobDetailsContent.propTypes = {
   name: PropTypes.string,
   company: PropTypes.string,
   date: PropTypes.string,
-  info: PropTypes.object,
+  info: PropTypes.array,
 };
 
 export default JobDetailsContent;

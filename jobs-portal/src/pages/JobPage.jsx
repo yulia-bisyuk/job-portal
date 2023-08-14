@@ -36,9 +36,9 @@ const JobPage = () => {
       .finally(() => setIsLoading(false));
   }, [jobId]);
 
-  if (jobItem) {
-    console.log(`jobItemContents: `, typeof jobItem.contents);
-  }
+  // if (jobItem) {
+  //   console.log(`jobItemContents: `, typeof jobItem.contents);
+  // }
 
   return (
     <div>
